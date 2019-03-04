@@ -4,6 +4,4 @@ class User < ApplicationRecord
   has_many :administrations
   has_many :users, through: :administrations
 
-  #def index
-  #end
 end
