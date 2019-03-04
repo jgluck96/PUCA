@@ -3,4 +3,7 @@ class User < ApplicationRecord
   has_many :users, through: :collaborations
   has_many :administrations
   has_many :users, through: :administrations
+
+  #def index
+  #end
 end
