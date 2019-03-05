@@ -1,0 +1,14 @@
+<h1 style="text-align:center;">Pick a Project</h1>
+
+<br>
+<br>
+
+<ul style="display:inline-table;">
+  <% @projects.each do |project| %>
+    <li style="display:inline;"><h3><%= project.title %></h3>
+      <%= project.description %><br>
+      <%= link_to "View this Project", project_path(project) %></li>
+    <br>
+    <br>
+  <% end %>
+</ul>
