@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Experience.create!(lang: "ruby")
+Experience.create!(lang: "java")
+Experience.create!(lang: "javascript")
+Experience.create!(lang: "python")
+# Experience.create!(lang: "ruby")
+# Experience.create!(lang: "ruby")
+# Experience.create!(lang: "ruby")
+# Experience.create!(lang: "ruby")
+# Experience.create!(lang: "ruby")
+# Experience.create!(lang: "ruby")
