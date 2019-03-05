@@ -7,13 +7,14 @@ class ProjectsController < ApplicationController
   def create
     project = Project.new(new_proj_params)
     if project.save
+      # Administration.create(user_id: self.id, project_id: project.id)
       redirect_to project_path(project)
     else
       flash[:errors] = project.errors.full_messages
       redirect_to new_project_path
     end
   end
-   
+
   def index
    @projects = Project.where(completed: "false")
 
@@ -26,15 +27,31 @@ class ProjectsController < ApplicationController
     render :showcase
   end
 
+  def admins(project)
+    admins = project.administrations
+    admin_ids = admins.map { |a| a.user_id }
+    admin_ids.map do |id|
+      User.find(id)
+    end
+  end
+
+  def collabs(project)
+    collabs = project.collaborations
+    collab_ids = collabs.map { |c| c.user_id }
+    collab_ids.map do |id|
+      User.find(id)
+    end
+  end
+
   def show
     @project = Project.find(params[:id])
-    @admins = @project.administrations
-    @collabs = @project.collaborations
+    @admins = admins(@project)
+    @collabs = collabs(@project)
 
     render :show
   end
-  
-  
+
+
 
   private
 

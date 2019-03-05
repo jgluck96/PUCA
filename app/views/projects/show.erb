@@ -5,25 +5,23 @@
 
 <h4 style="text-align:center;">Administrators</h4>
 <% @admins.each do |admin| %>
-  <%= link_to admin.username, user_path(admin.user_id) %>
+  <%= link_to admin.username, user_path(admin) %>
 <% end %>
 
 <br>
 
 <h4 style="text-align:center;">Collaborators</h4>
 <% @collabs.each do |collab| %>
-  <%= link_to collab.username, user_path(collab.user_id) %>
+  <%= link_to collab.username, user_path(collab) %>
 <% end %>
 
 <h5 style="text-align:center;">Project Description</h5>
-<%= @project.desciption %>
+<%= @project.description %>
 
 <br>
 <br>
 
 <h6 style="text-align:center;">Tech Stack</h6>
 <ul style="display:inline-table;">
-  <% @project.tech_stack.each do |t| %>
-    <li style="display:inline;"><%= t %></li>
-  <% end %>
+    <li style="display:inline;"><%= @project.tech_stack %></li>
 </ul>
