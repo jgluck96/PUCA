@@ -3,6 +3,11 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    if logged_in?
+      redirect_to user_path(session[:user_id])
+    else
+      @user = User.new
+    end
   end
 
   def create
