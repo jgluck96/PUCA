@@ -7,7 +7,7 @@ class User < ApplicationRecord
   # has_and_belongs_to_many :experiences
   has_secure_password
   def nice_lang
-    self.experience.gsub!(/"/, '').gsub!('[', '').gsub!(']', '').gsub!(',', '').split.join(', ')
+    self.experience.gsub!(/"/, '').gsub!('[', '').gsub!(']', '')
   end
 
   # def password
