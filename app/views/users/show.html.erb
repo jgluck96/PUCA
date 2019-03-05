@@ -1,10 +1,13 @@
-<h1><%= @user.first_name %>'s Page</h1>
+<%= link_to image_tag("http://4.bp.blogspot.com/-q92dDdVrF1I/Tw0A_TErnKI/AAAAAAAAwvs/l4SzLCNTOBw/s1600/pucca.jpg", :border => 3, width: 50, height: 37, :alt => '', :title => ''), home_path %>
+
+
+<h2><%= @user.first_name %>'s Page</h2>
 Name: <%= "#{@user.first_name} #{@user.last_name}" %><br>
 Bio: <%= @user.bio %><br>
 Location: <%= @user.location %><br>
 Languages: <%= @user.nice_lang %><br>
 
-<%= button_to 'Logout', logout_path, method: :delete %>
 
-<%# <%= if current_user.id == @user.id %>
-<%# <%= button_to 'Delete Account' %>
+<% if current_user.id == @user.id %>
+<%= button_to 'Logout', logout_path, method: :delete %>
+<% end %>
