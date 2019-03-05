@@ -3,6 +3,7 @@ class User < ApplicationRecord
   has_many :users, through: :collaborations
   has_many :administrations
   has_many :users, through: :administrations
+  accepts_nested_attributes_for :projects
   # has_and_belongs_to_many :experiences
 
   def nice_lang
