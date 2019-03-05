@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
   def create
     project = Project.new(new_proj_params)
     if project.save
-      # Administration.create(user_id: self.id, project_id: project.id)
+      Administration.create(user_id: user.id, project_id: project.id)
       redirect_to project_path(project)
     else
       flash[:errors] = project.errors.full_messages
@@ -47,6 +47,7 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @admins = admins(@project)
     @collabs = collabs(@project)
+    @tech_stack = @project.tech_stack.split(",")
 
     render :show
   end

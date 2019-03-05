@@ -3,10 +3,10 @@
 <br>
 <br>
 
-<ul style="display:inline-table;">
+<ul>
   <% @projects.each do |project| %>
-    <li style="display:inline;"><h3><%= project.title %></h3>
-      <%= project.description %><br>
+    <li><h2><%= project.title %></h2>
+      <%= project.description %><br><br>
       <%= link_to "View this Project", project_path(project) %></li>
     <br>
     <br>
