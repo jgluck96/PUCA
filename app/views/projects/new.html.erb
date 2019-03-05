@@ -1,0 +1,26 @@
+<h1>Create your Project!</h1>
+<%= form_for @project do |f| %>
+  <%= f.label 'Title:' %>
+  <%= f.text_field :title %><br>
+
+  <%= f.label 'Category:' %>
+  <%= f.select "category", options_for_select([ "Art", "Dance", "Design", "Fashion", "Film & Video", "Food", "Games", "Journalism", "Music", "Photography", "Publishing", "Technology", "Theater"], @project.category) %>
+  <br>
+
+  <%= f.label 'Description:' %><br>
+  <%= f.text_area :description %><br>
+
+  <%= f.label "Tech Stack:" %><br>
+  Ruby<%= f.check_box("tech_stack", {:multiple => true}, "ruby", nil) %>
+  Java<%= f.check_box("tech_stack", {:multiple => true}, "java", nil) %>
+  Python<%= f.check_box("tech_stack", {:multiple => true}, "python", nil) %>
+  Javascript<%= f.check_box("tech_stack", {:multiple => true}, "javascript", nil) %>
+  React<%= f.check_box("tech_stack", {:multiple => true}, "react", nil) %>
+  C#<%= f.check_box("tech_stack", {:multiple => true}, "C#", nil) %>
+  PHP<%= f.check_box("tech_stack", {:multiple => true}, "PHP", nil) %>
+  SQL<%= f.check_box("tech_stack", {:multiple => true}, "SQL", nil) %>
+<br>
+
+  <%= f.submit %>
+
+<% end %>
