@@ -2,13 +2,9 @@
 Name: <%= "#{@user.first_name} #{@user.last_name}" %><br>
 Bio: <%= @user.bio %><br>
 Location: <%= @user.location %><br>
-<<<<<<< HEAD
-Languages: <%= @user.experience %><br>
-=======
 Languages: <%= @user.nice_lang %><br>
 
 <%= button_to 'Logout', logout_path, method: :delete %>
 
 <%# <%= if current_user.id == @user.id %>
 <%# <%= button_to 'Delete Account' %>
->>>>>>> 39d261df90d1edcf91f2219f8c4d069329d701eb

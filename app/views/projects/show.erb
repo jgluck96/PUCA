@@ -27,3 +27,9 @@
     <li><%= s.capitalize %></li>
   <% end %>
 </ul>
+
+<br>
+<br>
+<br>
+
+<h2><%= link_to "Collaborate on #{@project.title}", new_collaboration_path(@project.id)%></h2>

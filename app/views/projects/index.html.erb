@@ -3,12 +3,11 @@
 <br>
 <br>
 
-<ul>
+
   <% @projects.each do |project| %>
-    <li><h2><%= project.title %></h2>
+    <h2><%= project.title %></h2>
       <%= project.description %><br><br>
-      <%= link_to "View this Project", project_path(project) %></li>
+      <%= link_to "View this Project", project_path(project) %>
     <br>
     <br>
   <% end %>
-</ul>
