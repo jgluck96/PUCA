@@ -12,12 +12,12 @@
   <%= f.label :location %>
   <%= f.text_field :location %><br>
 
-  <%= f.label :language %><br>
-  Ruby<%= f.check_box("experience", {:multiple => true}, "ruby", nil) %>
-  Java<%= f.check_box("experience", {:multiple => true}, "java", nil) %>
-  Python<%= f.check_box("experience", {:multiple => true}, "python", nil) %>
-  Javascript<%= f.check_box("experience", {:multiple => true}, "javascript", nil) %>
-  React<%= f.check_box("experience", {:multiple => true}, "react", nil) %>
+  <%= f.label "Languages: " %><br>
+  Ruby<%= f.check_box("experience", {:multiple => true}, "Ruby", nil) %>
+  Java<%= f.check_box("experience", {:multiple => true}, "Java", nil) %>
+  Python<%= f.check_box("experience", {:multiple => true}, "Python", nil) %>
+  Javascript<%= f.check_box("experience", {:multiple => true}, "Javascript", nil) %>
+  React<%= f.check_box("experience", {:multiple => true}, "React", nil) %>
   C#<%= f.check_box("experience", {:multiple => true}, "C#", nil) %>
   PHP<%= f.check_box("experience", {:multiple => true}, "PHP", nil) %>
   SQL<%= f.check_box("experience", {:multiple => true}, "SQL", nil) %>
@@ -26,7 +26,7 @@
   <%= f.text_field :username %><br>
 
   <%= f.label "Password:" %>
-  <%= f.text_field :password %><br>
+  <%= f.password_field :password %><br>
 
   <%= f.submit %>
 
