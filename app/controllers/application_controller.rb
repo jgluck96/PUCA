@@ -1,10 +1,16 @@
 class ApplicationController < ActionController::Base
-  def home
-    #code
+  before_action :authorized
+  helper_method :current_user 
+  def current_user
+    User.find_by({id: session[:user_id]})
   end
 
-  def projects
-    #code
+  def logged_in?
+    !!current_user
+  end
+
+  def authorized
+    redirect_to login_path unless logged_in?
   end
 
 end
