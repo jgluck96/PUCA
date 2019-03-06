@@ -24,6 +24,15 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @admins = Administration.where(user_id: @user.id)
+    @collaborations = Collaboration.where(user_id: @user.id)
+    @projects = @admins.map do |ad|
+      Project.find_by(id: ad.project_id)
+    end
+    @collabs = @collaborations.map do |c|
+      Project.find_by(id: c.project_id)
+    end
+
     render :show
   end
 

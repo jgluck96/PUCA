@@ -11,3 +11,35 @@ Languages: <%= @user.experience %><br>
 <% if current_user.id == @user.id %>
 <%= button_to 'Logout', logout_path, method: :delete %>
 <% end %>
+
+
+<br>
+<br>
+
+<h2>My Projects</h2>
+<br>
+<% if @admins != [] %>
+<ul>
+  <% @projects.each do |proj| %>
+    <li><%= link_to proj.title, proj %></li>
+  <% end %>
+</ul>
+<% else %>
+  <%= "I don't have any projects." %>
+<% end %>
+
+<br>
+<br>
+
+
+<h3>Collaborating On:</h3>
+<br>
+<% if @collaborations != [] %>
+  <ul>
+    <% @collabs.each do |collab| %>
+      <li><%= link_to collab.title, collab %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <%= "I'm not currently contributing to other projects." %>
+<% end %>
