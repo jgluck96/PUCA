@@ -6,7 +6,7 @@ class ProjectsController < ApplicationController
 
   def create
     # byebug
-    params[:project][:tech_stack].join(', ')
+    params[:project][:tech_stack] = params[:project][:tech_stack].join(', ')
     project = Project.new(new_proj_params)
     if project.save
       Administration.create(user_id: current_user.id, project_id: project.id)
