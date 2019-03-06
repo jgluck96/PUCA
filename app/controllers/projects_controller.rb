@@ -5,6 +5,8 @@ class ProjectsController < ApplicationController
   end
 
   def create
+    # byebug
+    params[:project][:tech_stack].join(', ')
     project = Project.new(new_proj_params)
     if project.save
       Administration.create(user_id: current_user.id, project_id: project.id)
@@ -16,7 +18,8 @@ class ProjectsController < ApplicationController
   end
 
   def index
-   @projects = Project.where(completed: "false")
+   # @projects = Project.where(completed: "false")
+   @projects = Project.all
 
    render :index
   end
@@ -47,7 +50,7 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @admins = admins(@project)
     @collabs = collabs(@project)
-    @tech_stack = @project.tech_stack.split(",")
+    # @tech_stack = @project.tech_stack.split(",")
 
     render :show
   end
@@ -57,7 +60,7 @@ class ProjectsController < ApplicationController
   private
 
   def new_proj_params
-    params.require(:project).permit(:title, :category, :description, tech_stack: [])
+    params.require(:project).permit(:title, :category, :description, :tech_stack)
   end
 
   # def edit_proj_params

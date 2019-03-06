@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   # resources :users
 
-  get '/', to: 'application#home', as: 'home'
+  get '/', to: 'home#home', as: 'home'
 
   get '/showcase', to: 'projects#showcase'
 

@@ -6,7 +6,8 @@
 
   <% @projects.each do |project| %>
     <h2><%= project.title %></h2>
-      <%= project.description %><br><br>
+      <%= project.description %><br>
+      <br>
       <%= link_to "View this Project", project_path(project) %>
     <br>
     <br>
