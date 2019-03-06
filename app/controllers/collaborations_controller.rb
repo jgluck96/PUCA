@@ -1,13 +1,9 @@
 class CollaborationsController < ApplicationController
 
-  def new
-    collaboration = Collaboration.new
-    
-    render :new
-  end
+  def add_collaborator
+    Collaboration.create(user_id: current_user.id, project_id: params[:project_id])
 
-  def create
-
+    redirect_to project_path(id: params[:project_id])
   end
 
 end

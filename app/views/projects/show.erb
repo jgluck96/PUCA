@@ -31,4 +31,4 @@
 <br>
 <br>
 
-<h2><%= link_to "Collaborate on #{@project.title}", new_collaboration_path(@project.id)%></h2>
+<%= button_to "Collaborate on #{@project.title}", "/collaborate", method: :post, params: {project_id: @project.id}%>
