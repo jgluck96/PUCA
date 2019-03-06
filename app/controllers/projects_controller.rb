@@ -17,7 +17,7 @@ class ProjectsController < ApplicationController
 
   def index
    @projects = Project.where(completed: "false")
-
+  
    render :index
   end
 
@@ -57,7 +57,7 @@ class ProjectsController < ApplicationController
   private
 
   def new_proj_params
-    params.require(:project).permit(:title, :category, :description, :tech_stack: [])
+    params.require(:project).permit(:title, :category, :description, tech_stack: [])
   end
 
   # def edit_proj_params
