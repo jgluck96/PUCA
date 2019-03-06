@@ -18,8 +18,7 @@ class ProjectsController < ApplicationController
   end
 
   def index
-   # @projects = Project.where(completed: "false")
-   @projects = Project.all
+   @projects = Project.where(completed: "false")
 
    render :index
   end

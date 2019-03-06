@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_05_032043) do
+ActiveRecord::Schema.define(version: 2019_03_06_162945) do
 
   create_table "administrations", force: :cascade do |t|
     t.integer "user_id"
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 2019_03_05_032043) do
     t.string "category"
     t.string "description"
     t.string "tech_stack"
-    t.boolean "completed"
+    t.boolean "completed", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
