@@ -3,6 +3,10 @@
 <br>
 <br>
 
+<% if flash[:errors] %>
+  <%= flash[:errors] %>
+<% end %>
+
 <h4>Administrators</h4>
 <% @admins.each do |admin| %>
   <%= link_to admin.username, user_path(admin) %>
@@ -32,4 +36,5 @@
 <br>
 <br>
 
-<%= button_to "Collaborate on #{@project.title}", "/collaborate", method: :post, params: {project_id: @project.id}%>
+
+<%= button_to "Collaborate on #{@project.title}", "/collaborate", method: :post, params: {project_id: @project.id, admin_id: @project.administrations.first.user_id}%>

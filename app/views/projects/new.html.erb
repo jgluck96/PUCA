@@ -2,8 +2,13 @@
 
 <br>
 <br>
-
-
+<% if flash[:errors] %>
+  <% flash[:errors].each do |e| %>
+    <%= "**#{e}**" %>
+  <% end %>
+  <br>
+  <br>
+<% end %>
 
 <%= form_for @project do |f| %>
   <%= f.label 'Title:' %>
