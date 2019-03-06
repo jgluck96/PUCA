@@ -49,11 +49,10 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @admins = admins(@project)
     @collabs = collabs(@project)
-    # @tech_stack = @project.tech_stack.split(",")
+    @tech_stack = @project.tech_stack.split(",")
 
     render :show
   end
-
 
 
   private
