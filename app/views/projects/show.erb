@@ -23,8 +23,9 @@
 
 <h4>Tech Stack</h4>
 <ul>
-
-  <%= @project.tech_stack %>
+  <% @tech_stack.each do |l| %>
+    <li><%= l %></li>
+  <% end %>
 </ul>
 
 <br>

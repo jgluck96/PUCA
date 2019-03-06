@@ -6,7 +6,7 @@ class ProjectsController < ApplicationController
 
   def create
     # byebug
-    params[:project][:tech_stack].join(', ')
+    params[:project][:tech_stack] = params[:project][:tech_stack].join(', ')
     project = Project.new(new_proj_params)
     if project.save
       Administration.create(user_id: current_user.id, project_id: project.id)
@@ -49,11 +49,10 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @admins = admins(@project)
     @collabs = collabs(@project)
-    # @tech_stack = @project.tech_stack.split(",")
+    @tech_stack = @project.tech_stack.split(",")
 
     render :show
   end
-
 
 
   private

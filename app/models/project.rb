@@ -6,7 +6,4 @@ class Project < ApplicationRecord
 
   validates :tech_stack, presence: true
 
-  def nice_lang
-    self.tech_stack.gsub!(/"/, '').gsub!('[', '').gsub!(']', '').gsub!(',', '').split.join(', ')
-  end
 end
