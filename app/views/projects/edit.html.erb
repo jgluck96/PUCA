@@ -1,0 +1,35 @@
+<h1>Edit <%= @project.title %></h1>
+
+<% if flash[:errors] %>
+  <% flash[:errors].each do |error| %>
+  <%= error %>
+<% end %>
+
+<%= form_for @project do |f| %>
+  <%= f.label 'Title:' %>
+  <%= f.text_field :title %><br>
+
+  <%= f.label 'Category:' %>
+  <%= f.select "category", options_for_select([ "Art", "Dance", "Design", "Fashion", "Film & Video", "Food", "Games", "Journalism", "Music", "Photography", "Publishing", "Technology", "Theater"], @project.category) %>
+  <br>
+
+  <%= f.label 'Description:' %><br>
+  <%= f.text_area :description %><br>
+
+  <%= f.label "Tech Stack:" %><br>
+  Ruby<%= f.check_box("tech_stack", {:multiple => true}, 'Ruby', nil) %>
+  Java<%= f.check_box("tech_stack", {:multiple => true}, 'Java', nil) %>
+  Python<%= f.check_box("tech_stack", {:multiple => true}, 'Python', nil) %>
+  Javascript<%= f.check_box("tech_stack", {:multiple => true}, 'Javascript', nil) %>
+  React<%= f.check_box("tech_stack", {:multiple => true}, 'React', nil) %>
+  C#<%= f.check_box("tech_stack", {:multiple => true}, 'C#', nil) %>
+  PHP<%= f.check_box("tech_stack", {:multiple => true}, 'PHP', nil) %>
+  SQL<%= f.check_box("tech_stack", {:multiple => true}, 'SQL', nil) %>
+<br>
+
+  <%= f.label 'Completed?' %><br>
+  <%= f.check_box :completed %><br>
+
+  <%= f.submit %>
+
+<% end %>

@@ -54,6 +54,19 @@ class ProjectsController < ApplicationController
     render :show
   end
 
+  def edit
+    @project = Project.find(params[:id])
+  end
+
+  def update
+    project = Project.find(params[:id])
+    if project.update(edit_proj_params)
+      redirect_to project
+    else
+      flash[:errors] = project.errors.full_messages
+      redirect_to edit_project_path
+    end
+  end
 
   private
 
@@ -61,9 +74,9 @@ class ProjectsController < ApplicationController
     params.require(:project).permit(:title, :category, :description, :tech_stack)
   end
 
-  # def edit_proj_params
-  #   params.require(:project).permit(:title, :category, :description, :tech_stack: [], :completed)
-  # end
+  def edit_proj_params
+    params.require(:project).permit(:title, :category, :description, :tech_stack, :completed)
+  end
 
 
 end
