@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :collaborations
   resources :administrations
   resources :projects
-  resources :users, only: [:show, :new, :create]
+  resources :users
 
   post '/collaborate', to:"collaborations#add_collaborator"
   get '/login', to: 'sessions#new', as: 'login'

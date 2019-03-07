@@ -36,10 +36,37 @@ class UsersController < ApplicationController
     render :show
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    user = User.find(params[:id])
+    if user.update(edit_proj_params)
+      redirect_to user
+    else
+      flash[:errors] = user.errors.full_messages
+      redirect_to edit_user_path
+    end
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    @admins = Administration.where(user_id: @user.id)
+    @projects = @admins.map do |ad|
+      Project.find_by(id: ad.project_id).destroy
+    end
+    @user.destroy
+    redirect_to home_path
+  end
+
   private
 
   def user_params
     params.require(:user).permit(:username, :first_name, :last_name, :password, :bio, :location, :experience)
   end
 
+  def edit_proj_params
+    params.require(:user).permit(:username, :first_name, :last_name, :password, :bio, :location, :experience)
+  end
 end

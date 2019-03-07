@@ -15,9 +15,15 @@
 <br>
 
 <h4>Collaborators</h4>
+<ul>
 <% @collabs.each do |collab| %>
-  <%= link_to collab.username, user_path(collab) %>
+  <li><%= link_to collab.username, user_path(collab) %></li>
+
+  <% if @admin_id && current_user.id == @admin_id.user_id %>
+    <%= button_to "delete collaborator", Collaboration.find_by(project_id: @project.id, user_id: collab.id), method: :delete, data: { confirm: 'Are you sure?' } %><br>
+  <% end %>
 <% end %>
+</ul>
 
 <h4>Project Description</h4>
 <%= @project.description %>

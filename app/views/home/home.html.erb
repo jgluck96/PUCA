@@ -1,13 +1,4 @@
 <!-- <h1>PUCA</h1> -->
 
 
-<%= link_to image_tag("http://4.bp.blogspot.com/-q92dDdVrF1I/Tw0A_TErnKI/AAAAAAAAwvs/l4SzLCNTOBw/s1600/pucca.jpg", :border => 3, width: 50, height: 37, :alt => '', :title => ''), home_path %>
-
-<% if current_user %>
-<%= button_to 'Logout', logout_path, method: :delete %>
-<% else %>
-<%= button_to 'Login', login_path, method: :get %>
-<%= button_to 'Sign Up', new_user_path, method: :get %>
-<% end %>
-
-<%= button_to 'Projects', projects_path, method: :get %>
+<%# <%= link_to image_tag("http://4.bp.blogspot.com/-q92dDdVrF1I/Tw0A_TErnKI/AAAAAAAAwvs/l4SzLCNTOBw/s1600/pucca.jpg", :border => 3, width: 50, height: 37, :alt => '', :title => ''), home_path %>

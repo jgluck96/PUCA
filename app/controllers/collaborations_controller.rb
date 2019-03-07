@@ -10,5 +10,10 @@ class CollaborationsController < ApplicationController
       redirect_to project_path(id: params[:project_id])
     end
   end
-
+  def destroy
+    @collaboration = Collaboration.find(params[:id])
+    @proj = Project.find_by(id: @collaboration.project_id)
+    @collaboration.destroy
+    redirect_to project_path(@proj)
+  end
 end

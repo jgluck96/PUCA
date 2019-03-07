@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-
+skip_before_action :authorized, only: [:index, :show, :showcase]
   def new
     @project = Project.new
   end
@@ -50,7 +50,7 @@ class ProjectsController < ApplicationController
     @admins = admins(@project)
     @collabs = collabs(@project)
     @tech_stack = @project.tech_stack.split(",")
-
+    @admin_id = @project.administrations.find_by(user_id: current_user.id)
     render :show
   end
 
@@ -66,6 +66,12 @@ class ProjectsController < ApplicationController
       flash[:errors] = project.errors.full_messages
       redirect_to edit_project_path
     end
+  end
+
+  def destroy
+    @project = Project.find(params[:id])
+    @project.destroy
+    redirect_to user_path(current_user)
   end
 
   private
