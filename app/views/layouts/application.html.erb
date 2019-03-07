@@ -11,6 +11,8 @@
   </head>
 
   <body>
+    <div class="background">
+
     <% if logged_in? %>
     <div class="topnav">
   <a class="active" href="/">Home</a>
@@ -23,12 +25,13 @@
     <% else %>
     <div class="topnav">
   <a class="active" href="/">Home</a>
-  <a href="/projects">Open Projects</a>
   <a href="/showcase">Completed Projects</a>
   <%= link_to 'Login', login_path, method: :get %>
   <%= link_to 'Sign Up', new_user_path, method: :get %>
 </div>
   <% end %>
+
     <%= yield %>
+    </div>
   </body>
 </html>
