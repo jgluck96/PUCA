@@ -13,3 +13,49 @@
  *= require_tree .
  *= require_self
  */
+ @import "semantic-ui";
+/***************** NAV **************/
+ .topnav {
+   background-color: #2ccbbb;
+   padding: 14px 16px;
+   overflow: hidden;
+ }
+
+ .background {
+   background-color: #eafaf9;
+ }
+ /* Style the links inside the navigation bar */
+ .topnav a {
+   float: left;
+   color: #f2f2f2;
+   text-align: center;
+   padding: 14px 16px;
+   text-decoration: none;
+   font-size: 17px;
+ }
+
+ /* Change the color of links on hover */
+ .topnav a:hover {
+   background-color: #eafaf9;
+   opacity: 0.1;
+   filter: alpha(opacity=30);
+ }
+
+
+ /* Add a color to the active/current link */
+ .topnav a.active :hover {
+   background-color: #2ccbbb;
+   color: white;
+ }
+
+ /***************** Project Show **************/
+ .butt {
+     background:none!important;
+      border:none;
+      padding:0!important;
+
+     /*optional*/
+     font-family:arial,sans-serif; /*input has OS specific font-family*/
+      color:rgba(0,0,0,.6);
+      cursor:pointer;
+ }

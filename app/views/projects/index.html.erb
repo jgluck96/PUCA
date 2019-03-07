@@ -5,10 +5,22 @@
 
 
   <% @projects.each do |project| %>
-    <h2><%= project.title %></h2>
-      <%= project.description %><br>
-      <br>
-      <%= link_to "View this Project", project_path(project) %>
-    <br>
-    <br>
+  <div class="ui card">
+    <div class="content">
+      <h2 class='header'><%= project.title %></h2>
+    </div>
+    <div class="content">
+      <h4 class="ui sub header">Description</h4>
+      <div class="summary">
+      <% if project.description.length > 150 %>
+        <%= project.description[0..150] + "..."%>
+      <% else %>
+        <%= project.description %>
+      <% end %>
+      </div>
+    </div>
+    <div class="extra content">
+      <button class="ui button"><%= link_to "View", project_path(project) %></button>
+    </div>
+  </div>
   <% end %>

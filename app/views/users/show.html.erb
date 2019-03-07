@@ -53,5 +53,6 @@ Languages: <%= @user.experience %><br>
 <br>
 <br>
 <% if current_user.id == @user.id %>
+<%= link_to 'Edit Profile', edit_user_path(@user), method: :get %><br>
 <%= link_to 'Delete Account', @user, method: :delete, data: { confirm: 'Are you sure?' } %>
 <% end %>

@@ -17,9 +17,23 @@
 
 <% end %>
 
-<h4>Administrators</h4>
+<h4>Creator</h4>
 <% @admins.each do |admin| %>
-  <%= link_to admin.username, user_path(admin) %>
+<div class="ui card">
+  <div class="content">
+      <div class="header"><%= admin.username %></div>
+  </div>
+  <div class="content">
+      <h4 class="ui sub header">Bio:</h4>
+      <div class="summary">
+        <% if admin.bio.length > 30 %>
+          <%= admin.bio[0..40] + "..."%>
+        <% else %>
+          <%= admin.bio %>
+        <% end %>
+      </div>
+  </div>
+ </div>
 <% end %>
 
 <br>
@@ -52,5 +66,7 @@
 <br>
 <br>
 
-
-<%= button_to "Collaborate on #{@project.title}", "/collaborate", method: :post, params: {project_id: @project.id, admin_id: @project.administrations.first.user_id}%>
+<div class="ui bottom attached button">
+    <i class="add icon"></i>
+    <%= button_to "Collaborate", "/collaborate", method: :post, :class => 'butt', params: {project_id: @project.id, admin_id: @project.administrations.first.user_id}%>
+</div>
