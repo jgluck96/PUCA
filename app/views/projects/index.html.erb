@@ -1,11 +1,9 @@
-<h1 style="text-align:center;">Pick a Project</h1>
+<div class="project-index-container">
 
-<br>
-<br>
-
+  <h1 style="text-align:center; margin-bottom:4%;">Pick a Project</h1>
 
   <% @projects.each do |project| %>
-  <div class="ui card">
+  <div class="ui card" style="margin-bottom: 4%;">
     <div class="content">
       <h2 class='header'><%= project.title %></h2>
     </div>
@@ -24,3 +22,5 @@
     </div>
   </div>
   <% end %>
+
+</div>

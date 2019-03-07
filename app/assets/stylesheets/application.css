@@ -60,6 +60,7 @@
       cursor:pointer;
  }
 
+<<<<<<< HEAD
 /* svg {
     animation: slideInFromRight 3s forwards;
      animation-name: slideInFromRight;
@@ -107,4 +108,31 @@
   50%  {left:20px; top:20px;}
 
   100% {left:0px; top:0px;}
+=======
+ /***************** Open Project Index **************/
+.project-index-container {
+  background-color: #E6F9F7;
+  width: 70%;
+  margin: auto;
+  margin-bottom: 4%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 4%;
+  box-shadow: 12px 0 200px -40px #73AB84, -12px 0 200px -40px #73AB84;
+}
+
+ /***************** Completed Project Index **************/
+
+ .showcase-container {
+   background-color: #E6F9F7;
+   width: 70%;
+   margin: auto;
+   margin-bottom: 4%;
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+   padding-top: 4%;
+   box-shadow: 12px 0 200px -40px #73AB84, -12px 0 200px -40px #73AB84;
+>>>>>>> bf91273850cddb147f407c5777f834cb6d0307f8
  }
