@@ -9,10 +9,14 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <style >
       .topnav {
-        background-color: #333;
+        background-color: #2ccbbb;
+        padding: 14px 16px;
         overflow: hidden;
       }
 
+      .background {
+        background-color: #2ccbbb;
+      }
       /* Style the links inside the navigation bar */
       .topnav a {
         float: left;
@@ -30,10 +34,11 @@
       }
 
       /* Add a color to the active/current link */
-      .topnav a.active {
-        background-color: #4CAF50;
+      .topnav a.active :hover {
+        background-color: #2ccbbb;
         color: white;
       }
+
 
     </style>
   </head>

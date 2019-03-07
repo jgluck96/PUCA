@@ -7,6 +7,16 @@
   <%= flash[:errors] %>
 <% end %>
 
+<% if @coll_on_current_proj && current_user.id == @coll_on_current_proj.user_id %>
+
+
+<button style="opacity: .45!important; background-color: rgb(224, 225, 226); content: "\f007";" class="ui disabled button">
+  <i class="user icon"></i>
+  Collaborating
+</button>
+
+<% end %>
+
 <h4>Administrators</h4>
 <% @admins.each do |admin| %>
   <%= link_to admin.username, user_path(admin) %>

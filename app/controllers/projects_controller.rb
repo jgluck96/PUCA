@@ -51,6 +51,7 @@ skip_before_action :authorized, only: [:index, :show, :showcase]
     @collabs = collabs(@project)
     @tech_stack = @project.tech_stack.split(",")
     @admin_id = @project.administrations.find_by(user_id: current_user.id)
+    @coll_on_current_proj = Collaboration.find_by(project_id: @project.id, user_id: current_user.id)
     render :show
   end
 
