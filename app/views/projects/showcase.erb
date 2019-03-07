@@ -1,14 +1,23 @@
-<h1 style="text-align:center;">Projects Completed With PUCA</h1>
+<div class="showcase-container">
 
-<br>
-<br>
+  <h1 style="text-align:center; margin-bottom:4%;">Projects Completed With PUCA</h1>
 
-<ul style="display:inline-table;">
-  <% @projects.each do |project| %>
-    <li style="display:inline;"><h3><%= project.title %></h3>
-      <%= project.description %><br>
-      <%= link_to "View this Project", project_path(project) %></li>
-    <br>
-    <br>
-  <% end %>
-</ul>
+    <% @projects.each do |project| %>
+    <div class="ui card" style="margin-bottom: 4%;">
+      <div class="content">
+        <h4 class="ui sub header">Description</h4>
+        <div class="summary">
+        <% if project.description.length > 150 %>
+          <%= project.description[0..150] + "..."%>
+        <% else %>
+          <%= project.description %>
+        <% end %>
+        </div>
+      </div>
+      <div class="extra content">
+        <button class="ui button"><%= link_to "View", project_path(project) %></button>
+      </div>
+    </div>
+    <% end %>
+
+</div>

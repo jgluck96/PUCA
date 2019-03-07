@@ -59,3 +59,30 @@
       color:rgba(0,0,0,.6);
       cursor:pointer;
  }
+
+ /***************** Open Project Index **************/
+.project-index-container {
+  background-color: #E6F9F7;
+  width: 70%;
+  margin: auto;
+  margin-bottom: 4%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 4%;
+  box-shadow: 12px 0 200px -40px #73AB84, -12px 0 200px -40px #73AB84;
+}
+
+ /***************** Completed Project Index **************/
+
+ .showcase-container {
+   background-color: #E6F9F7;
+   width: 70%;
+   margin: auto;
+   margin-bottom: 4%;
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+   padding-top: 4%;
+   box-shadow: 12px 0 200px -40px #73AB84, -12px 0 200px -40px #73AB84;
+ }
