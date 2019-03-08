@@ -1,18 +1,35 @@
 <h1>Sign Up</h1>
+<% if flash[:errors] %>
+  <% flash[:errors].each do |e| %>
+    <%= "**#{e}**" %><br>
+  <% end %>
+  <br>
+  <br>
+<% end %>
 <%= form_for @user do |f| %>
+<div class="ui form">
+  <div class="three fields">
+    <div class="field">
   <%= f.label :first_name %>
-  <%= f.text_field :first_name %><br>
-
+  <%= f.text_field :first_name %>
+    </div>
+    <div class="field">
   <%= f.label :last_name %>
-  <%= f.text_field :last_name %><br>
-
-  <%= f.label :bio %><br>
-  <%= f.text_area :bio %><br>
-
+  <%= f.text_field :last_name %>
+    </div>
+    <div class="field">
+  <%= f.label :bio %>
+  <%= f.text_area :bio, :rows=>"2" %>
+    </div>
+  </div>
+  <div class="two fields">
+    <div class="field">
   <%= f.label :location %>
-  <%= f.text_field :location %><br>
-
-  <%= f.label "Languages: " %><br>
+  <%= f.text_field :location %>
+    </div>
+    <div class="field">
+      <div class="required field">
+  <%= f.label "Languages: " %>
   Ruby<%= f.check_box("experience", {:multiple => true}, "Ruby", nil) %>
   Java<%= f.check_box("experience", {:multiple => true}, "Java", nil) %>
   Python<%= f.check_box("experience", {:multiple => true}, "Python", nil) %>
@@ -22,12 +39,63 @@
   PHP<%= f.check_box("experience", {:multiple => true}, "PHP", nil) %>
   SQL<%= f.check_box("experience", {:multiple => true}, "SQL", nil) %>
 <br>
+</div>
+</div>
+</div>
+<div class="two fields">
+  <div class="field">
+    <div class="required field">
   <%= f.label "Username:" %>
-  <%= f.text_field :username %><br>
-
+  <%= f.text_field :username %>
+  </div>
+  </div>
+  <div class="field">
+    <div class="required field">
   <%= f.label "Password:" %>
-  <%= f.password_field :password %><br>
-
-  <%= f.submit %>
-
+  <%= f.password_field :password %>
+  </div>
+  </div>
+  <div class="field"><br>
+    <br><%= f.submit %>
+</div>
+</div>
+</div>
 <% end %>
+
+<p>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</p>

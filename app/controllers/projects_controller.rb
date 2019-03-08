@@ -5,7 +5,10 @@ skip_before_action :authorized, only: [:index, :show, :showcase]
   end
 
   def create
-    # byebug
+    if params[:project][:tech_stack] == nil
+      flash[:errors] = ["Enter a language"]
+      redirect_to new_project_path
+    else
     params[:project][:tech_stack] = params[:project][:tech_stack].join(', ')
     project = Project.new(new_proj_params)
     if project.save
@@ -16,6 +19,7 @@ skip_before_action :authorized, only: [:index, :show, :showcase]
       redirect_to new_project_path
     end
   end
+end
 
   def index
    @projects = Project.where(completed: "false")

@@ -19,8 +19,11 @@
   <a href="/projects">Open Projects</a>
   <a href="/showcase">Completed Projects</a>
   <a href="/projects/new">New Project</a>
-  <%= link_to 'Account', user_path(current_user.id), method: :get %>
+  <div style="text-align:center;">
+
   <%= link_to 'Logout', logout_path, method: :delete %>
+  </div>
+  <%= link_to 'Account', user_path(current_user.id), method: :get %>
 </div>
     <% else %>
     <div class="topnav">

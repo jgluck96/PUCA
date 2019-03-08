@@ -11,8 +11,13 @@ class UsersController < ApplicationController
   end
 
   def create
-    params[:user][:experience] = params[:user][:experience].join(', ')
-    user = User.new(user_params)
+    if params[:user][:experience] == nil
+      flash[:errors] = ["Enter a language"]
+      redirect_to new_user_path
+    else
+      params[:user][:experience] = params[:user][:experience].join(', ')
+      user = User.new(user_params)
+
     if user.save
       session[:user_id] = user.id
       redirect_to user_path(user)
@@ -21,6 +26,7 @@ class UsersController < ApplicationController
       redirect_to new_user_path
     end
   end
+end
 
   def show
     @user = User.find(params[:id])

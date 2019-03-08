@@ -2,22 +2,35 @@
 
 <% if flash[:errors] %>
   <% flash[:errors].each do |error| %>
-  <%= error %>
+  <%= "**#{error}**" %><br>
   <% end %>
 <% end %>
 
-<%= form_for @project do |f| %>
-  <%= f.label 'Title:' %>
-  <%= f.text_field :title %><br>
 
+<%= form_for @project do |f| %>
+<div class="ui form">
+  <div class="three fields">
+    <div class="field">
+      <div class="required field">
+  <%= f.label 'Title:' %>
+  <%= f.text_field :title %>
+</div>
+</div>
+<div class="field">
   <%= f.label 'Category:' %>
   <%= f.select "category", options_for_select([ "Art", "Dance", "Design", "Fashion", "Film & Video", "Food", "Games", "Journalism", "Music", "Photography", "Publishing", "Technology", "Theater"], @project.category) %>
-  <br>
 
-  <%= f.label 'Description:' %><br>
-  <%= f.text_area :description %><br>
+</div>
+<div class="field">
+  <%= f.label 'Description:' %>
+  <%= f.text_area :description, :rows => "2" %>
+</div>
+</div>
+<div class="two fields">
 
-  <%= f.label "Tech Stack:" %><br>
+<div class="field">
+
+  <%= f.label "Tech Stack:" %>
   Ruby<%= f.check_box("tech_stack", {:multiple => true}, 'Ruby', nil) %>
   Java<%= f.check_box("tech_stack", {:multiple => true}, 'Java', nil) %>
   Python<%= f.check_box("tech_stack", {:multiple => true}, 'Python', nil) %>
@@ -27,10 +40,16 @@
   PHP<%= f.check_box("tech_stack", {:multiple => true}, 'PHP', nil) %>
   SQL<%= f.check_box("tech_stack", {:multiple => true}, 'SQL', nil) %>
 <br>
+</div>
 
-  <%= f.label 'Completed?' %><br>
-  <%= f.check_box :completed %><br>
+  <div class="field">
+  <%= f.label 'Completed?' %>
+  <%= f.check_box :completed %>
+  </div>
+</div>
+  <div class="field">
+<%= f.submit %>
+</div>
 
-  <%= f.submit %>
-
+</div>
 <% end %>

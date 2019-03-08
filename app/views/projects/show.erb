@@ -1,11 +1,8 @@
 <h1 style="text-align:center;"><%= @project.title %></h1>
 
-<br>
-<br>
 
-<% if flash[:errors] %>
-  <%= flash[:errors] %>
-<% end %>
+<div style="text-align:center;">
+
 
 <% if @coll_on_current_proj && current_user.id == @coll_on_current_proj.user_id %>
 
@@ -16,12 +13,15 @@
 </button>
 
 <% end %>
+<br>
+<br>
+<br>
 
-<h4>Creator</h4>
+<h3>Creator</h3>
 <% @admins.each do |admin| %>
 <div class="ui card">
   <div class="content">
-      <div class="header"><%= admin.username %></div>
+      <div class="header"><%= link_to admin.username, admin %></div>
   </div>
   <div class="content">
       <h4 class="ui sub header">Bio:</h4>
@@ -38,35 +38,63 @@
 
 <br>
 
-<h4>Collaborators</h4>
-<ul>
-<% @collabs.each do |collab| %>
-  <li><%= link_to collab.username, user_path(collab) %></li>
 
-  <% if @admin_id && current_user.id == @admin_id.user_id %>
-    <%= button_to "delete collaborator", Collaboration.find_by(project_id: @project.id, user_id: collab.id), method: :delete, data: { confirm: 'Are you sure?' } %><br>
-  <% end %>
-<% end %>
-</ul>
 
-<h4>Project Description</h4>
+<h3>Project Description</h3>
 <%= @project.description %>
 
 <br>
 <br>
 
-<h4>Tech Stack</h4>
-<ul>
-  <% @tech_stack.each do |l| %>
-    <li><%= l %></li>
-  <% end %>
-</ul>
+<h3>Tech Stack</h3>
+<table class="ui collapsing table">
+  <thead>
+    <tr>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <% @tech_stack.each do |l| %>
+      <td><%= l %></td>
+      <% end %>
+    </tr>
+
+  </tbody>
+  <tfoot>
+  </tfoot>
+</table>
+
 
 <br>
-<br>
-<br>
+
+
+
+<h3>Collaborators</h3>
+
+<% @collabs.each do |collab| %>
+<div class="ui card">
+  <div class="content">
+    <div class="header"><%= link_to collab.username, user_path(collab) %></div>
+  </div>
+  <div class="content">
+    <h4 class="ui sub header">Bio:</h4>
+    <div class="summary">
+      <% if collab.bio.length > 30 %>
+      <%= collab.bio[0..40] + "..."%>
+      <% else %>
+      <%= collab.bio %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<% if @admin_id && current_user.id == @admin_id.user_id %>
+<%= button_to "delete collaborator", Collaboration.find_by(project_id: @project.id, user_id: collab.id), method: :delete, data: { confirm: 'Are you sure?' } %><br>
+<% end %>
+<% end %>
 
 <div class="ui bottom attached button">
-    <i class="add icon"></i>
-    <%= button_to "Collaborate", "/collaborate", method: :post, :class => 'butt', params: {project_id: @project.id, admin_id: @project.administrations.first.user_id}%>
+  <i class="add icon"></i>
+  <%= button_to "Collaborate", "/collaborate", method: :post, :class => 'butt', params: {project_id: @project.id, admin_id: @project.administrations.first.user_id}%>
+</div>
 </div>
