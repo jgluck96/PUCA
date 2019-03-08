@@ -4,7 +4,7 @@
   <div class="content">
     <h1><div class="header" style="text-align:center; padding-bottom: 5%;"><%= @user.username %></div></h1>
       <h3>Name</h3><%= "#{@user.first_name} #{@user.last_name}" %>
-      <h4>Bio</h4><%= @user.bio %>
+      <h4>Bio</h4><p style="overflow-wrap: break-word;"><%= @user.bio %></p>
       <h4>Location</h4><%= @user.location %>
       <h4>Languages</h4><%= @user.experience %>
       <br>
@@ -38,11 +38,16 @@
       <% end %>
       </div>
     </div>
-    <div class="extra content">
+    <div class="extra content" style="margin:auto;">
       <button class="ui button"><%= link_to "View", project_path(project) %></button>
+      <% if current_user.id == @user.id %>
+      <button class="ui button"><%= link_to "edit", edit_project_path(project), method: :get %></button>
+      <button class="ui button"><%= link_to "delete", project, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+      <% end %>
     </div>
   </div>
   <% end %>
+
 
 <% else %>
   <%= "I don't have any projects." %>

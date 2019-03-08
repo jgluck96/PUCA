@@ -66,6 +66,15 @@ end
     redirect_to home_path
   end
 
+  def personal_index
+    admins = Administration.where(user_id: current_user.id)
+    @projects = admins.map do |ad|
+      Project.find_by(id: ad.project_id)
+    end
+
+    render :personal_index
+  end
+
   private
 
   def user_params

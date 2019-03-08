@@ -13,5 +13,7 @@ Rails.application.routes.draw do
 
   get '/showcase', to: 'projects#showcase'
 
+  get '/my-projects', to: 'users#personal_index', as: 'personal_projects'
+
 
 end
