@@ -81,10 +81,14 @@
     <i class="fork icon"></i>
   </div>
 </div>
+
+<br>
+<br>
+
 <% if @collabs != [] %>
 
 <% @collabs.each do |collab| %>
-<div class="ui card">
+<div class="ui card" style="margin:auto;">
   <div class="content">
     <div class="header"><%= link_to collab.username, user_path(collab) %></div>
   </div>
