@@ -1,3 +1,5 @@
+<div class="project-index-container">
+
 <h1 style="text-align:center;"><%= @project.title %></h1>
 
 
@@ -47,6 +49,7 @@
 <br>
 
 <h3>Tech Stack</h3>
+
 <table class="ui collapsing table">
   <thead>
     <tr>
@@ -65,12 +68,20 @@
   </tfoot>
 </table>
 
-
 <br>
 
-
-
 <h3>Collaborators</h3>
+<div class="ui left labeled button" tabindex="0">
+
+
+  <a class="ui basic label">
+    <%= @collabs.length %>
+  </a>
+  <div class="ui icon button">
+    <i class="fork icon"></i>
+  </div>
+</div>
+<% if @collabs != [] %>
 
 <% @collabs.each do |collab| %>
 <div class="ui card">
@@ -92,9 +103,15 @@
 <%= button_to "delete collaborator", Collaboration.find_by(project_id: @project.id, user_id: collab.id), method: :delete, data: { confirm: 'Are you sure?' } %><br>
 <% end %>
 <% end %>
+<% else %>
+<%= "There is currently nobody working on this project." %>
+<% end %>
+<br>
+<br>
 
 <div class="ui bottom attached button">
   <i class="add icon"></i>
   <%= button_to "Collaborate", "/collaborate", method: :post, :class => 'butt', params: {project_id: @project.id, admin_id: @project.administrations.first.user_id}%>
+</div>
 </div>
 </div>

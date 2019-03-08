@@ -1,13 +1,28 @@
-<%# <%= link_to image_tag("http://4.bp.blogspot.com/-q92dDdVrF1I/Tw0A_TErnKI/AAAAAAAAwvs/l4SzLCNTOBw/s1600/pucca.jpg", :border => 3, width: 50, height: 37, :alt => '', :title => ''), home_path %>
+<div class="project-index-container">
 
-
-<h2><%= @user.first_name %>'s Page</h2>
+<!-- <div style="text-align:center;"> -->
+<h1><%= @user.username %></h1>
 Name: <%= "#{@user.first_name} #{@user.last_name}" %><br>
-Bio: <%= @user.bio %><br>
+<br>Bio: <% if @user.bio.length > 26 %>
+  <%= @user.bio[0..26] %><br>
+  <%= @user.bio[27..58] %><br>
+  <%= @user.bio[59..93] %><br>
+  <%= @user.bio[94..127] %><br>
+  <%= @user.bio[128..161] %><br>
+  <%= @user.bio[162..193] %>
+  <%= @user.bio[194..229] %>
+  <%= @user.bio[230..263] %>
+  <%= @user.bio[230..263] %>
+  <%= @user.bio[264..294] %>
+  <%= @user.bio[295..300] %>
+
+<% else %>
+  <%= @user.bio %><br>
+<% end %>
 Location: <%= @user.location %><br>
-Languages: <%= @user.experience %><br>
+<br>Languages: <%= @user.experience %><br>
 
-
+<!-- </div> -->
 <% if current_user.id == @user.id %>
 <%# <%= button_to 'Logout', logout_path, method: :delete %>
 <% end %>
@@ -15,19 +30,31 @@ Languages: <%= @user.experience %><br>
 
 <br>
 <br>
-
 <h2>My Projects</h2>
 <br>
 <% if @admins != [] %>
-<ul>
-  <% @projects.each do |proj| %>
-    <li><%= link_to proj.title, proj %></li>
-    <% if current_user.id == @user.id %>
-      <%= button_to "edit", edit_project_path(proj), method: :get %>
-      <%= button_to "delete", proj, method: :delete, data: { confirm: 'Are you sure?' } %><br>
-    <% end %>
+
+  <% @projects.each do |project| %>
+  <div class="ui card" style="margin-bottom: 4%;">
+    <div class="content">
+      <h2 class='header'><%= project.title %></h2>
+    </div>
+    <div class="content">
+      <h4 class="ui sub header">Description</h4>
+      <div class="summary">
+      <% if project.description.length > 150 %>
+        <%= project.description[0..150] + "..."%>
+      <% else %>
+        <%= project.description %>
+      <% end %>
+      </div>
+    </div>
+    <div class="extra content">
+      <button class="ui button"><%= link_to "View", project_path(project) %></button>
+    </div>
+  </div>
   <% end %>
-</ul>
+
 <% else %>
   <%= "I don't have any projects." %>
 <% end %>
@@ -36,14 +63,41 @@ Languages: <%= @user.experience %><br>
 <br>
 
 
-<h3>Collaborating On:</h3>
+<h2>Collaborating On</h2>
+<div class="ui left labeled button" tabindex="0">
+  <a class="ui basic label">
+    <%= @collabs.length %>
+  </a>
+  <div class="ui icon button">
+    <i class="fork icon"></i>
+  </div>
+</div>
 <br>
 <% if @collaborations != [] %>
-  <ul>
+
     <% @collabs.each do |collab| %>
-      <li><%= link_to collab.title, collab %></li>
+    <div class="ui card" style="margin-bottom: 4%;">
+      <div class="content">
+        <h2 class='header'><%= link_to collab.title, collab %></h2>
+      </div>
+      <div class="content">
+        <h4 class="ui sub header">Description</h4>
+        <div class="summary">
+        <% if collab.description.length > 150 %>
+          <%= collab.description[0..150] + "..."%>
+        <% else %>
+          <%= collab.description %>
+        <% end %>
+        </div>
+      </div>
+      <div class="extra content">
+        <button class="ui button"><%= link_to "View", project_path(collab) %></button>
+      </div>
+    </div>
     <% end %>
-  </ul>
+
+
+
 <% else %>
   <%= "I'm not currently contributing to other projects." %>
 <% end %>
@@ -52,7 +106,32 @@ Languages: <%= @user.experience %><br>
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
 <% if current_user.id == @user.id %>
-<%= link_to 'Edit Profile', edit_user_path(@user), method: :get %><br>
-<%= link_to 'Delete Account', @user, method: :delete, data: { confirm: 'Are you sure?' } %>
+<button class="ui button">
+<%= link_to 'Edit Profile', edit_user_path(@user), method: :get, :style => 'color: black;' %><br>
+</button>
+<button class="negative ui button">
+<%= link_to 'Delete Account', @user, method: :delete, data: { confirm: 'Are you sure?' }, :style => 'color: black;' %>
+</button>
 <% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
