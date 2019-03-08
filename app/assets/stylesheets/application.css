@@ -15,40 +15,48 @@
  */
  @import "semantic-ui";
 /***************** NAV **************/
- .topnav {
+ /* .topnav {
    background-color: #2ccbbb;
    padding: 14px 16px;
    overflow: hidden;
- }
+ } */
 
  .background {
    background-color: #eafaf9;
+   padding-bottom:  40px;
+   padding-left:  30px;
+   padding-right:  30px;
+   padding-top: 10px;
  }
  /* Style the links inside the navigation bar */
- .topnav a {
+ /* .topnav a {
    float: left;
    color: #f2f2f2;
    text-align: center;
    padding: 14px 16px;
    text-decoration: none;
    font-size: 17px;
- }
+ } */
 
  /* Change the color of links on hover */
- .topnav a:hover {
+ /* .topnav a:hover {
    background-color: #eafaf9;
    opacity: 0.1;
    filter: alpha(opacity=30);
- }
+ } */
 
 
  /* Add a color to the active/current link */
- .topnav a.active :hover {
-   background-color: #2ccbbb;
-   color: white;
+ .texts  {
+   color: #000066
  }
 
  /***************** Project Show **************/
+#autt {
+  margin: auto;
+}
+
+
  .butt {
      background:none!important;
       border:none;
@@ -81,20 +89,25 @@
      animation-play-state: running;
  } */
  /***************** HOME **************/
+.textt {
+  color: #000066;
+  font-size: 90px;
+  font-family: Helvetica,Arial;
+}
 
-
+#border {
+  font-weight: 900;
+}
 
  svg {
-   width: 100px;
-   height: 100px;
-   position: relative;
+   position: absolute;
    animation-name: example;
    animation-duration: 5s;
    animation-iteration-count: infinite;
    animation-fill-mode: forwards;
    animation-direction: alternate;
    animation-timing-function: ease-in-out;
-
+   margin: 80px 0px 0px 220px;
    animation-play-state: running;
  }
 
