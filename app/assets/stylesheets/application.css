@@ -266,3 +266,10 @@ max-width: 1200px;
   padding-top: 1%;
   padding-bottom: 1%;
 }
+
+.ui .raised .card {
+  align-items: center;
+  width: 50%;
+  border-style: groove;
+  border-width: medium;
+}

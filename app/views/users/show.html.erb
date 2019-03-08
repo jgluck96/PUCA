@@ -1,26 +1,28 @@
 <div class="project-index-container">
 
-<!-- <div style="text-align:center;"> -->
-<h1><%= @user.username %></h1>
-Name: <%= "#{@user.first_name} #{@user.last_name}" %><br>
-<br>Bio: <% if @user.bio.length > 26 %>
-  <%= @user.bio[0..26] %><br>
-  <%= @user.bio[27..58] %><br>
-  <%= @user.bio[59..93] %><br>
-  <%= @user.bio[94..127] %><br>
-  <%= @user.bio[128..161] %><br>
-  <%= @user.bio[162..193] %>
-  <%= @user.bio[194..229] %>
-  <%= @user.bio[230..263] %>
-  <%= @user.bio[230..263] %>
-  <%= @user.bio[264..294] %>
-  <%= @user.bio[295..300] %>
-
-<% else %>
-  <%= @user.bio %><br>
-<% end %>
-Location: <%= @user.location %><br>
-<br>Languages: <%= @user.experience %><br>
+<div class="ui raised card">
+  <div class="content">
+    <h1><div class="header" style="text-align:center; padding-bottom: 5%;"><%= @user.username %></div></h1>
+      <h3>Name</h3><%= "#{@user.first_name} #{@user.last_name}" %>
+      <h4>Bio</h4><% if @user.bio.length > 26 %>
+                    <%= @user.bio[0..26] %><br>
+                    <%= @user.bio[27..58] %><br>
+                    <%= @user.bio[59..93] %><br>
+                    <%= @user.bio[94..127] %><br>
+                    <%= @user.bio[128..161] %><br>
+                    <%= @user.bio[162..193] %><br>
+                    <%= @user.bio[194..229] %><br>
+                    <%= @user.bio[230..263] %><br>
+                    <%= @user.bio[230..263] %><br>
+                    <%= @user.bio[264..294] %><br>
+                    <%= @user.bio[295..300] %>
+                  <% else %>
+                    <%= @user.bio %>
+                  <% end %>
+      <h4>Location</h4><%= @user.location %>
+      <h4>Languages</h4><br><%= @user.experience %>
+  </div>
+</div>
 
 <!-- </div> -->
 <% if current_user.id == @user.id %>

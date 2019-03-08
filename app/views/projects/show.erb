@@ -1,6 +1,6 @@
 <div class="project-index-container">
 
-<h1 style="text-align:center;"><%= @project.title %></h1>
+<h1 style="text-align:center; font-size: 3rem"><%= @project.title %></h1>
 
 
 <div style="text-align:center;">
@@ -19,9 +19,9 @@
 <br>
 <br>
 
-<h3>Creator</h3>
+<h2>Creator</h2>
 <% @admins.each do |admin| %>
-<div class="ui card">
+<div class="ui card" style="margin:auto;">
   <div class="content">
       <div class="header"><%= link_to admin.username, admin %></div>
   </div>
@@ -42,15 +42,15 @@
 
 
 
-<h3>Project Description</h3>
-<%= @project.description %>
+<h2>Project Description</h2>
+<div style="font-size:1.3rem"><%= @project.description %></div>
 
 <br>
 <br>
 
-<h3>Tech Stack</h3>
+<h2>Tech Stack</h2>
 
-<table class="ui collapsing table">
+<table class="ui collapsing table" style="margin:auto;">
   <thead>
     <tr>
 
@@ -70,7 +70,7 @@
 
 <br>
 
-<h3>Collaborators</h3>
+<h2>Collaborators</h2>
 <div class="ui left labeled button" tabindex="0">
 
 
