@@ -230,6 +230,7 @@ max-width: 1200px;
   align-items: center;
   flex-direction: column;
   padding-top: 4%;
+  padding-bottom: 4%;
   box-shadow: 12px 0 200px -40px #73AB84, -12px 0 200px -40px #73AB84;
 }
 
@@ -250,4 +251,31 @@ max-width: 1200px;
 
  /***************** signup **************/
 
+ .signup-container {
+   width: 90%;
+   margin: auto;
+   padding-top: 4%;
+ }
+
  /***************** proj show page **************/
+
+
+
+  /***************** New Project Page **************/
+
+.new-project-container {
+  width: 90%;
+  margin: auto;
+  padding-top: 4%;
+}
+
+ /***************** user show page **************/
+
+.ui .button {
+  padding-bottom: 1%;
+}
+
+.negative .ui .button {
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
